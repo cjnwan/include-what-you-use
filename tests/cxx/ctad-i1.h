@@ -1,4 +1,4 @@
-//===--- iwyu_version.h - include-what-you-use versioning -----------------===//
+//===--- ctad-i1.h - test input file for iwyu -----------------------------===//
 //
 //                     The LLVM Compiler Infrastructure
 //
@@ -7,9 +7,14 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef INCLUDE_WHAT_YOU_USE_IWYU_VERSION_H_
-#define INCLUDE_WHAT_YOU_USE_IWYU_VERSION_H_
+template <class Func>
+struct Deduced {
+  Deduced(Func&& deferred) : deferred(deferred) {
+  }
 
-#define IWYU_VERSION_STRING "0.17"
+  ~Deduced() {
+    deferred();
+  }
 
-#endif  // INCLUDE_WHAT_YOU_USE_IWYU_VERSION_H_
+  Func deferred;
+};

@@ -1,4 +1,4 @@
-//===--- iwyu_version.h - include-what-you-use versioning -----------------===//
+//===--- no_forced_alias_callability-d2.h - test input file for iwyu ------===//
 //
 //                     The LLVM Compiler Infrastructure
 //
@@ -7,9 +7,12 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef INCLUDE_WHAT_YOU_USE_IWYU_VERSION_H_
-#define INCLUDE_WHAT_YOU_USE_IWYU_VERSION_H_
+struct Aliased;
 
-#define IWYU_VERSION_STRING "0.17"
+typedef Aliased Alias;
 
-#endif  // INCLUDE_WHAT_YOU_USE_IWYU_VERSION_H_
+/**** IWYU_SUMMARY
+
+(tests/cxx/no_forced_alias_callability-d2.h has correct #includes/fwd-decls)
+
+***** IWYU_SUMMARY */
